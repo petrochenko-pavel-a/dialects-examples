@@ -1,0 +1,15 @@
+#%RAML 1.0 Dialect
+
+dialect: Validation Profile
+version: 1.0
+
+usage: Dialect to describe validations over RAML documents
+uses:
+  validation: validation.raml
+external:
+  schema-org: "http://schema.org/"
+  shacl: "http://www.w3.org/ns/shacl#"
+nodeMappings:
+
+  functionConstraintNode:
+    classTerm: shacl.JSConstraint

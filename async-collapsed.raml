@@ -1,7 +1,8 @@
 #%RAML 1.0 Vocabulary
 usage: Vocabulary to define Asynchronous APIs
 dialect: RAML Async
-version: 0.1
+version: 0.2
+
 uses:
   raml-doc: ./raml-doc.raml
 external:
@@ -24,23 +25,7 @@ classTerms:
       - endpoints
       - bindings
       - serialization
-    syntax:
-      title:
-        term: schema-org.title
-        mandatory: true
-      version:
-        term: schema-org.version
-      description:
-        term: schema-org.description
-      types:
-        term: type-declaration
-        declaration: true
-      connection:
-        term: connection
-        collection: true
-      endpoints:
-        term: endpoints
-        declaration: true
+
   Connection:
     displayName: Connection
     description: |
@@ -65,14 +50,7 @@ classTerms:
       - bindings
       - parameter
       - operation
-    syntax:
-      description: schema-org.description
-      parameters:
-        term: parameter
-        collection: true
-      operation:
-        term: operation
-        hash: schema-org.name
+
   Parameter:
     displayName: Parameter
     description: Information about the replacement options that can be used in a parametric EndPoint
@@ -80,10 +58,7 @@ classTerms:
     properties:
       - schema-org.name
       - schema
-    syntax:
-      name:
-        term: schema-org.name
-        mandatory: true
+
   AsyncOperation:
     displayName: Async Operation
     description: Each of the operations in the asynchronous interface
@@ -95,8 +70,7 @@ classTerms:
       - bindings
       - pattern
       - serialization
-    syntax:
-      description: schema-org.description
+
   Message:
     displayName: Message
     description: Unit of data passed as the argument of an asyn operation
@@ -104,10 +78,7 @@ classTerms:
     properties:
       - header
       - schema
-    syntax:
-      headers:
-        term: header
-        collection: true
+
   Header:
     displayName: Header
     description: Meta information for a message
@@ -116,13 +87,10 @@ classTerms:
       - schema-org.name
       - mandatory
       - schema
-    syntax:
-      name:
-        term: schema-org.name
-        mandatory: true
+
   Bindings:
     extends: raml-doc.DomainElement
-  shacl.Shape:  
+  shacl.Shape:
 propertyTerms:
   mandatory:
     range: boolean
